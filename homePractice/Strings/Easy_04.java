@@ -21,14 +21,14 @@ public class Easy_04 {
 
         while(!done){
             for (int i = 0; i < number.length(); i++){
-                if (numeratorCount < number.length() && numeratorCount < 10){
+                if (numeratorCount < number.length() && numeratorCount < 9){
                     numeratorCount++;
                     tempNumerator += number.substring(i, i+1);
                 } if (numeratorCount == number.length()){
                     result += ("" + Integer.valueOf(tempNumerator) / divisor);
                     number = "" + remainder + number.substring(tempNumerator.length());
                     break;
-                } if (numeratorCount == 10) {
+                } if (numeratorCount == 9) {
                     result += ("" + Integer.valueOf(tempNumerator) / divisor);
                     remainder = Integer.valueOf(tempNumerator) % divisor;
                     number = "" + remainder + number.substring(tempNumerator.length());
@@ -40,6 +40,7 @@ public class Easy_04 {
                 done = true;
             } else{
                 largeNumDivider(number, divisor, result);
+                return;
             }
         }
 
