@@ -11,9 +11,11 @@ public class Easy_04 {
         sc.close();
         sc2.close();
 
-        largeNumDivider(number, divisor, "");
+        String answer = largeNumDivider(number, divisor);
+        System.out.println(answer);
     }
-    public static void largeNumDivider(String number, int divisor, String result){
+    public static String largeNumDivider(String number, int divisor){
+        String result = "";
         int remainder = 0;
         int numeratorCount = 0;
         String tempNumerator = "";
@@ -39,11 +41,11 @@ public class Easy_04 {
             if(number.length() <= 10 && Integer.valueOf(number) < divisor){
                 done = true;
             } else{
-                largeNumDivider(number, divisor, result);
-                return;
+                result = result + largeNumDivider(number, divisor);
+                done = true;
             }
         }
 
-        System.out.println(result);
+        return result;
     }
 }
